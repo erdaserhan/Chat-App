@@ -2,7 +2,6 @@ import cloudinary from "../lib/cloudinary.js";
 import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-import cloudinary from "../lib/cloudinary.js";
 
 export const singup = async(req, res) => {
     const { email, fullName, password } = req.body;
@@ -102,6 +101,14 @@ export const updateProfile = async (req, res) => {
     } catch (error) {   
         console.log("Error in update profile", error);
         res.status(500).json({ message: "Internal Server Error" });
+    }        
+};
+
+export const checkAuth = (req, res) => {
+    try {
+        res.status(200).json(req.user);
+    } catch (error) {
+        console.log("Error in checkAuth controller", error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
-        
 };
