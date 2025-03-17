@@ -10,7 +10,7 @@ import { connectDB } from './lib/db.js';
 dotenv.config();
 const app = express();
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT;
 
 app.use(express.json()); // allow us to parse incoming JSON data
 app.use(CookieParser()); // allow us to parse incoming cookie data
