@@ -10,8 +10,11 @@ const ProfilePage = () => {
     const file = e.target.files[0];
     if (!file) return;
     
+    // to read the file as base64(string)
     const reader = new FileReader();
+
     reader.readAsDataURL(file);
+
     reader.onload = async () => {
       const base64Image = reader.result;
       setSelectedImage(base64Image);
