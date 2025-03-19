@@ -44,6 +44,6 @@ export default {
       "dim",
       "nord",
       "sunset",
-    ]
-  }
-}
+    ],
+  },
+};
