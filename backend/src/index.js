@@ -13,7 +13,7 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-app.use(express.json()); // allow us to parse incoming JSON data
+app.use(express.json({ limit: "50mb" })); // allow us to parse incoming JSON data
 app.use(CookieParser()); // allow us to parse incoming cookie data
  
 // to not have the cors error. Because the frontend and backend are on different ports.

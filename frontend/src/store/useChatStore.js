@@ -37,7 +37,7 @@ export const useChatStore = create((set, get) => ({
         const { selectedUser, messages } = get(); // Zustand get. Get the current state of selectedUser, messages
         try {
           const res = await axiosInstance.post(`/messages/send/${selectedUser._id}`, messageData);
-          set({ messages: [...messages, res.data] });
+          set({ messages: [...messages, res.data] }); //Keep all the previous messages and add the new message
         } catch (error) {
           toast.error(error.response.data.message);
         }
